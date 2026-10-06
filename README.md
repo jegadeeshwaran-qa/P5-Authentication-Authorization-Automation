@@ -1,172 +1,143 @@
-P5 - Authentication and Authorization Automation
+# P5 - Authentication and Authorization Automation
 
-Playwright + TypeScript automation project for testing login, logout, and protected page access in a web application.
+Playwright + TypeScript automation project for testing login, logout, and protected-page access.
 
-Project Overview
+## Project Overview
 
-This project focuses on authentication and authorization testing.
+This project focuses on authentication and authorization testing for a practice web application.
 
-The automation covers:
+## Application Under Test
+
+**Expand Testing – Practice Login**
+
+https://practice.expandtesting.com/login
+
+## Tools and Technologies
+
+- Playwright
+- TypeScript
+- Node.js
+- Page Object Model
+- GitHub Actions
+- Jenkins
+
+## Test Coverage
+
+The project includes 33 Playwright tests across Chromium, Firefox, and WebKit.
+
+Covered scenarios include:
 
 - Valid login
 - Invalid username
 - Invalid password
 - Empty credentials
 - Logout
-- Secure page access after login
-- Secure page access without login
-- Access after logout
+- Secure-page access after login
+- Secure-page access without login
+- Secure-page access after logout
 - Authorization checks
 
-Application Under Test
+## Automation Approach
 
-Expand Testing - Practice Login
+The project uses the Page Object Model to keep page locators and reusable actions separate from test cases.
 
-URL:
+The tests include:
 
-https://practice.expandtesting.com/login
+- Role-based locators
+- CSS and test ID locators
+- Assertions
+- Positive and negative scenarios
+- Authentication and authorization validation
+- Cross-browser execution
 
-Tools & Technologies
+## Project Structure
 
-- Playwright
-- TypeScript
-- Node.js
-- Git & GitHub
-- GitHub Actions
-- Jenkins
-
-Project Structure
-
+```text
 P5-Authentication-Authorization-Automation/
+├── .github/
+│   └── workflows/
+│       └── playwright.yml
 ├── pages/
 │   ├── login.page.ts
 │   └── secure.page.ts
-├── tests/
-│   ├── login.spec.ts
-│   └── authorization.spec.ts
+├── screenshots/
+│   ├── jenkins-built1.png
+│   └── jenkins-built2.png
 ├── test-data/
 │   └── users.ts
-├── screenshots/
-│   └── jenkins-build.png
-├── playwright.config.ts
+├── tests/
+│   ├── authorization.spec.ts
+│   └── login.spec.ts
+├── Jenkinsfile
 ├── package.json
 ├── package-lock.json
-├── README.md
-└── .gitignore
+├── playwright.config.ts
+└── README.md
+```
 
-Test Scenarios
+## Test Execution
 
-Authentication
+Install dependencies:
 
-1. Login with valid user
-2. Login with invalid username
-3. Login with invalid password
-4. Login with empty credentials
-5. User can logout
+```bash
+npm install
+```
 
-Authorization
+Install Playwright browsers:
 
-6. Authenticated user can access secure page
-7. Unauthenticated user cannot access secure page
-8. User can logout successfully
-9. Logged out user cannot access secure page
-
-The project contains additional test coverage for authentication and authorization validations.
-
-Automation Approach
-
-The project uses the Page Object Model (POM) to keep page locators and actions separate from test cases.
-
-The tests use:
-
-- Role-based locators
-- CSS/Test ID locators
-- Assertions
-- Reusable page methods
-- Positive and negative test scenarios
-- Authentication validation
-- Authorization validation
-- Cross-browser testing
-
-Test Execution
+```bash
+npx playwright install
+```
 
 Run all tests:
 
+```bash
 npx playwright test
-
-Run authentication tests:
-
-npx playwright test tests/login.spec.ts
-
-Run authorization tests:
-
-npx playwright test tests/authorization.spec.ts
+```
 
 Run tests on Chromium:
 
+```bash
 npx playwright test --project=chromium
+```
 
-Test Result
+## GitHub Actions CI
 
-The current test suite contains 33 test scenarios.
+GitHub Actions is configured to:
 
-All scenarios were executed across:
+1. Check out the repository
+2. Install npm dependencies
+3. Install Playwright browsers
+4. Run the Playwright test suite
 
-- Chromium
-- Firefox
-- WebKit
+## Jenkins CI
 
-33/33 test scenarios passed across all configured browsers. ✅
-
-GitHub Actions CI
-
-This project is configured with GitHub Actions for automated test execution.
-
-The workflow:
-
-- Checks out the project from GitHub
-- Installs Node.js dependencies
-- Installs Playwright browsers
-- Runs the Playwright test suite
-
-The GitHub Actions workflow completed successfully with all tests passing.
-
-Jenkins CI
-
-This project was also executed through Jenkins to practice CI pipeline execution.
+This project was also executed through a Jenkins pipeline on Windows.
 
 The Jenkins pipeline:
 
-- Clones the project from GitHub
-- Installs Node.js dependencies
-- Installs Playwright browsers
-- Runs the Playwright test suite
-- Reports the build result in Jenkins
+1. Clones the GitHub repository
+2. Installs npm dependencies
+3. Installs Playwright browsers
+4. Runs the Playwright test suite
 
-The Jenkins build completed successfully with all tests passing.
+The Jenkins build completed successfully.
 
-Jenkins Build Result
+## Jenkins Build Result
 
-"Jenkins Build Result" (screenshots/jenkins-build1.png,jenkins-build2.png)
+![Jenkins pipeline build #1 — SUCCESS](screenshots/jenkins-built1.png)
 
-What I Practiced
+![Jenkins console output](screenshots/jenkins-built2.png)
 
-Through this project, I practiced:
+## What I Practiced
 
-- UI automation using Playwright
-- TypeScript
+- UI automation using Playwright and TypeScript
+- Authentication and authorization testing
 - Page Object Model
-- Authentication testing
-- Authorization testing
 - Positive and negative testing
-- Login validation
-- Logout validation
-- Protected page validation
 - Cross-browser testing
-- Git and GitHub
-- GitHub Actions
+- GitHub Actions CI
 - Jenkins CI
 
-Note
 
-This project was created for QA automation practice and portfolio demonstration.
+7:21 PM
